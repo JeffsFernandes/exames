@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Data coleta:</b>
+  <%= @examination.data_coleta %>
+</p>
+
+<p>
+  <b>Carga viral:</b>
+  <%= @examination.carga_viral %>
+</p>
+
+<p>
+  <b>Aghbs:</b>
+  <%= @examination.aghbs %>
+</p>
+
+<p>
+  <b>Periodo:</b>
+  <%= @examination.periodo %>
+</p>
+
+
+<%= link_to 'Edit', edit_examination_path(@examination) %> |
+<%= link_to 'Back', examinations_path %>

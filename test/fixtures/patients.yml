@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sexo: 
+  passagem: 1
+  data_nascimento: 
+  prontuario: MyString
+
+two:
+  sexo: 
+  passagem: 1
+  data_nascimento: 
+  prontuario: MyString
