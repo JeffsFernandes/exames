@@ -31,9 +31,12 @@ Genotipo: <br/>
 <br>
 Resistencia a Drogas:
 <br/>
+
 <%= select_tag("druguse_ids[]", options_for_select(Drug.find(:all).collect { |drug| [drug.nome, drug.id] }, 
 	@examination.drug_uses.collect { |use| use.id}), {:multiple=>true, :size=>6})%>
-  
+
+<%= select_tag("testselect", options_for_select(Drug.find(:all).collect { |drug| [drug.nome, drug.id] }),{:multiple=>true, :size=>6})%>
+
   <div class="field">
     <%= f.label :carga_viral %><br />
     <%= f.text_field :carga_viral %>
