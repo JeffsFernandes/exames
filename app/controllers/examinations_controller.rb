@@ -1,4 +1,7 @@
 class ExaminationsController < ApplicationController
+
+   before_filter :authenticate_user!
+
   # GET /examinations
   # GET /examinations.json
   def index

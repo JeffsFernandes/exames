@@ -1,4 +1,6 @@
 Exames::Application.routes.draw do
+  devise_for :users
+
   resources :patients
 
   resources :examinations
@@ -7,6 +9,8 @@ Exames::Application.routes.draw do
 
   get "examination/new"
 
+  root :to => "home#index" 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
