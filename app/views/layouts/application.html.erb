@@ -6,16 +6,15 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<div id="user_nav">
-  <% if user_signed_in? %>
-    Conectado como <%= current_user.email %>.
-    <%= link_to "Desconectar", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Registrar-se", new_user_registration_path %> or <%= link_to "Conectar", new_user_session_path %>
-  <% end %>
-</div>
-<%= yield %>
-
+<body class="body">
+		<% if user_signed_in? %>
+			<div class="topo"> 
+			</div>
+			<div id="menu">
+				<%= link_to "Exames", examinations_path%>
+				<%= link_to "Desconectar", destroy_user_session_path, :method => :delete %>
+			</div>
+		<% end %>
+		<%= yield %>
 </body>
 </html>

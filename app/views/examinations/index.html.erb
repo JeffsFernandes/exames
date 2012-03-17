@@ -1,8 +1,13 @@
-<h1>Listing examinations</h1>
-
-<table>
+<div id="geralexames">
+<div class="margem">
+<h1 class="textexames">Exames</h1>
+<table id="tableexaminations">
   <tr>
+    <th>Codigo</th>
     <th>Data coleta</th>
+    <th>Medico</th>
+    <th>Paciente</th>
+    <th>Genotipo</th>
     <th>Carga viral</th>
     <th>Aghbs</th>
     <th>Periodo</th>
@@ -13,17 +18,24 @@
 
 <% @examinations.each do |examination| %>
   <tr>
-    <td><%= examination.data_coleta %></td>
+    <td>     <%= examination.id %>     </td>
+    <td>     <%= examination.data_coleta %>     </td>
+    <td><%= examination.doctor.nome %></td>
+    <td><%= examination.patient.prontuario %></td>
+    <td><%= examination.genotype.codigo %></td>
     <td><%= examination.carga_viral %></td>
     <td><%= examination.aghbs %></td>
     <td><%= examination.periodo %></td>
-    <td><%= link_to 'Show', examination %></td>
-    <td><%= link_to 'Edit', edit_examination_path(examination) %></td>
-    <td><%= link_to 'Destroy', examination, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Detalhes', examination %></td>
+    <td><%= link_to 'Editar', edit_examination_path(examination) %></td>
+    <td><%= link_to 'Apagar', examination, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
-
+</div>
+<div class="margem">
+<br/>
+<%= link_to 'Novo Exame', new_examination_path %>
+<div>
+</div>
 <br />
-
-<%= link_to 'New Examination', new_examination_path %>

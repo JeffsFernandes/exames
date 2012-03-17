@@ -1,7 +1,127 @@
-/*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
- *= require_self
- *= require_tree . 
-*/
+#geral, #geralexames, #geralnovoexame
+{
+	background-color: rgb(216,237,243);
+	opacity: 0.65;
+	-moz-opacity:0.65;
+	filter: alpha(opacity=65);
+	margin-top:0px;
+	position:relative; top:0px;
+}
+
+#menu
+{
+	background-color:black;
+	height:20px;
+}
+
+#menu a{
+	font-size: 15px;
+	font-family: georgia, arial;
+	color: white;
+	text-decoration:none;
+	padding:0px 0.5em;
+}
+
+
+#geralnovoexame
+{
+	margin: 0 auto;
+}
+.margem
+{
+	margin-left:30px;
+}
+#geralexames
+{
+	width:100%;
+}
+
+#tableexaminations table   
+	{
+	font-size: 14px;
+	font-family: Georgia, Verdana, Geneva, Arial, sans-serif;
+	background-color: transparent;
+	text-align: center;
+	}
+	
+#tableexaminations th
+	{
+	background-color: #F9FAF9
+	font-size: 20px;
+	}
+#tableexaminations td
+	{
+	padding: 0px 4px 0px 4px;
+	background-color: #F9FAF9;
+	
+	}
+
+#tableexaminations a
+{
+	text-decoration:none;
+	color:blue;
+}
+.topo
+{
+	height: 100px;
+	background-color: green;
+}
+.body
+{
+	/*background-image: url("back.png");
+	background-attachment: scroll;
+	background-color: rgb(173,216,230);*/
+}
+
+.loginfield
+{
+	line-height: 1.9em;
+}
+#login
+{
+	float: right;
+	width: 240px;
+}
+
+.ptextologin
+{
+	float:left;
+	margin-left:5px;
+	font-family: georgia, arial;
+	font-size: 15px;
+}
+
+#logingeral, #logingeralregistrar
+{
+	width: 500px;
+	height: 350px;
+	margin: 100px auto;
+	background-color: rgb(216,237,243);
+	font-family: georgia, arial;
+}
+
+#logingeralregistrar
+{	
+	width: 300px;
+	height:260px;
+}
+
+.textloginbemvindo
+{
+	margin-left:5px;
+	font-family: georgia, arial;
+	font-size: 18px;
+}
+.textlogin, .textexames
+{
+	color: rgb(65,105,255);
+	font-family: gabriola, arial;
+	font-size: 30px;
+	text-align:center;
+}
+
+.textexames
+{
+	text-align:left;
+	font-size: 40px;
+}
