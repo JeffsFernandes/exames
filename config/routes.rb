@@ -1,13 +1,19 @@
 Exames::Application.routes.draw do
+  resources :genotypes
+
+  resources :mutations
+
+  resources :drugs
+
+  resources :doctors
+
   devise_for :users
 
   resources :patients
 
   resources :examinations
 
-  get "examinations/new"
-
-  get "examination/new"
+  get "examinations/useDrugs"
 
   root :to => "home#index" 
   

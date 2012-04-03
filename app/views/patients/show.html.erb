@@ -1,25 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Sexo:</b>
-  <%= @patient.sexo %>
-</p>
+		<p>
+		  <b>Sexo:</b>
+		  <%= @patient.sexo %>
+		</p>
 
-<p>
-  <b>Passagem:</b>
-  <%= @patient.passagem %>
-</p>
+		<p>
+		  <b>Passagem:</b>
+		  <%= @patient.passagem %>
+		</p>
 
-<p>
-  <b>Data nascimento:</b>
-  <%= @patient.data_nascimento %>
-</p>
+		<p>
+		  <b>Data nascimento:</b>
+		  <%= @patient.data_nascimento %>
+		</p>
 
-<p>
-  <b>Prontuario:</b>
-  <%= @patient.prontuario %>
-</p>
+		<p>
+		  <b>Prontuario:</b>
+		  <%= @patient.prontuario %>
+		</p>
 
 
-<%= link_to 'Edit', edit_patient_path(@patient) %> |
-<%= link_to 'Back', patients_path %>
+		<%= link_to 'Edit', edit_patient_path(@patient) %> |
+		<%= link_to 'Back', patients_path %>
+
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+
+

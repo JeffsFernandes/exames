@@ -1,18 +1,27 @@
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
 <h1>Listing patients</h1>
 
-<table>
+<table summary="Patients" cellpadding="0" cellspacing="0">
+  <thead>
   <tr>
-    <th>Sexo</th>
+    <th>Gender</th>
     <th>Passagem</th>
-    <th>Data nascimento</th>
+    <th>Birth date</th>
     <th>Prontuario</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
-<% @patients.each do |patient| %>
-  <tr>
+  </thead>
+  	<% light = true %>
+	<% @patients.each do |patient| %>
+	<% if light %>
+	  <tr class="light">
+	<% else %>
+	  <tr class="dark">
+	<% end %>
     <td><%= patient.sexo %></td>
     <td><%= patient.passagem %></td>
     <td><%= patient.data_nascimento %></td>
@@ -20,6 +29,7 @@
     <td><%= link_to 'Show', patient %></td>
     <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
     <td><%= link_to 'Destroy', patient, confirm: 'Are you sure?', method: :delete %></td>
+	<% light = !light%>
   </tr>
 <% end %>
 </table>
@@ -27,3 +37,7 @@
 <br />
 
 <%= link_to 'New Patient', new_patient_path %>
+</div>
+<div class="clear"></div>
+</div>
+</div>

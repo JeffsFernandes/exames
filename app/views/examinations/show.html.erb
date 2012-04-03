@@ -1,25 +1,67 @@
-<p id="notice"><%= notice %></p>
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+		<p id="notice"><%= notice %></p>
+		<h1>Examination</h1>
+		<p>
+		  <b>Data coleta:</b>
+		  <%= @examination.data_coleta %>
+		</p>
 
-<p>
-  <b>Data coleta:</b>
-  <%= @examination.data_coleta %>
-</p>
+		<p>
+		  <b>Carga viral:</b>
+		  <%= @examination.carga_viral %>
+		</p>
 
-<p>
-  <b>Carga viral:</b>
-  <%= @examination.carga_viral %>
-</p>
+		<p>
+		  <b>Aghbs:</b>
+		  <%= @examination.aghbs %>
+		</p>
 
-<p>
-  <b>Aghbs:</b>
-  <%= @examination.aghbs %>
-</p>
+		<p>
+		  <b>Periodo:</b>
+		  <%= @examination.periodo %>
+		</p>
+		<p>
+			<b>Patient:</b>
+			<%= @examination.patient.prontuario %>
+		</p>
+		<p>
+			<b>Doctor:</b>
+			<%= @examination.doctor.nome %>
+		</p>
+		<p>
+			<b>Genotype:</b>
+			<%= @examination.genotype.codigo %>
+		</p>		
+		<p>
+			<b>Used drugs:</b>
+			<br/>
+			<% DrugUse.find_all_by_examination_id(@examination.id).each do |drugUse| %>
+				<br/><%= drugUse.drug.nome %>
+			<% end %>
+		</p>
+		
+		<p>
+			<b>Resistance drugs:</b>
+			<br/>
+			<% DrugResistance.find_all_by_examination_id(@examination.id).each do |drugResist| %>
+				<br/><%= drugResist.drug.nome %>
+			<% end %>
+		</p>
+		
+		<p>
+			<b>Mutations:</b>
+			<br/>
+			<% @examination.mutations.each do |mutation| %>
+				<br/><%= mutation.nome %>
+			<% end %>
+		</p>
+		
+		<%= link_to 'Edit', edit_examination_path(@examination) %> |
+		<%= link_to 'Back', examinations_path %>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
 
-<p>
-  <b>Periodo:</b>
-  <%= @examination.periodo %>
-</p>
-
-
-<%= link_to 'Edit', edit_examination_path(@examination) %> |
-<%= link_to 'Back', examinations_path %>

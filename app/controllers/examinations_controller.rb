@@ -43,14 +43,12 @@ class ExaminationsController < ApplicationController
   # POST /examinations
   # POST /examinations.json
   def create
+    puts "************************"
+    params.each do |k,v|
+      puts v
+    end
+    puts "************************"
     @examination = Examination.new(params[:examination])
-
-	if params[:druguse_ids]
-		@drugs = Drug.find(params[:druguse_ids]) 
-	end
-	
-	@drugs.each{|d| @examination.drug_uses << DrugUse.new(:drug_id => d.id)} if @drugs
-	
     respond_to do |format|
       if @examination.save
         format.html { redirect_to @examination, notice: 'Examination was successfully created.' }
@@ -88,5 +86,14 @@ class ExaminationsController < ApplicationController
       format.html { redirect_to examinations_url }
       format.json { head :ok }
     end
+  end
+  
+  private
+  
+  def useDrugs
+      if params[:useDrugs]
+    		@drug_ids = params[:useDrugs] 
+    	end
+    	@drug_ids.each{|d| params[:druguse_ids] << @drug_ids} if @drug_ids
   end
 end

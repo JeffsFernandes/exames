@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <meta http-equiv="imagetoolbar" content="no" />
 <%= stylesheet_link_tag    "application","feature_slide","forms","layout","loginslider","navi", "tables" %>
-<%= javascript_include_tag "application","jquery-1.4.1.min","jquery-ui-1.7.2.custom.min","jquery.slidepanel.setup","jquery.tabs.setup" %>
+<%= javascript_include_tag "application","jquery-1.4.1.min","jquery-ui-1.7.2.custom.min","jquery.slidepanel.setup","jquery.tabs.setup", "pages" %>
 <%= csrf_meta_tags %>
 </head>
 <body>
@@ -35,17 +35,20 @@
 <div class="wrapper col2">
   <% if user_signed_in? %>
 	<div id="topnav">
-    <ul> 
-      <li class="active">
-			<%= link_to "Exames", examinations_path %>
-      </li>
-      <li>
-		<%= link_to "Desconectar", destroy_user_session_path, :method => :delete %>
-	 </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+    	<ul> 
+      		<li class="active"> <%= link_to "Examinations", examinations_path %></li>
+			<li class="active"><a href="#">Data</a>
+				<ul>
+					<li><%= link_to "Patients",patients_path %></li>
+					<li><%= link_to "Doctors",doctors_path %></li>
+					<li><%= link_to "Drugs",drugs_path %></li>
+					<li><%= link_to "Mutations",mutations_path %></li>
+					<li><%= link_to "Genotypes",genotypes_path %></li>
+				</ul>
+			</li>
+      		<li><%= link_to "Logoff", destroy_user_session_path, :method => :delete %></li>
+     	</ul>
+  	</div>
   <% end %>
 </div>
 <!-- ####################################################################################################### -->

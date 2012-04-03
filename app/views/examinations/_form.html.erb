@@ -1,65 +1,85 @@
-<%= form_for(@examination) do |f| %>
-  <% if @examination.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@examination.errors.count, "error") %> prohibited this examination from being saved:</h2>
+		<script language="JavaScript">
 
-      <ul>
-      <% @examination.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+		function move_first_to_second(value) {
+		  var len = document.getElementById('selectedUsedDrugs_').length;
+		  document.getElementById('selectedUsedDrugs_').options[len] = new Option(value);
+		}
 
-  <div class="field">
-    <%= f.label :data_coleta %><br />
-    <%= f.date_select :data_coleta %>
-  </div>
+		function remove_elem(idx) {
+		  var len = document.getElementById('selectedUsedDrugs_').length;
+		  if (len <= 0) return;
+		  var combo = document.getElementById('selectedUsedDrugs_');
+		  var j=0;
+		  for (var i = 0; i < combo.options.length; i++) {
+		    if (i == idx) {
+		      combo.options[i].selected = false;
+		      combo.options[i] = null;
+		    } else {
+		      document.getElementById('selectedUsedDrugs_').options[j] = new Option(combo.options[i].value);
+		      j++;
+		    }
+		  }
+		}
+
+		</script>
+		<hidden id="hidden1">Oi</hidden>
+		<%= form_for(@examination) do |f| %>
+		  <% if @examination.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@examination.errors.count, "error") %> prohibited this examination from being saved:</h2>
+
+		      <ul>
+		      <% @examination.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+
+		  <div class="field">
+		    <%= f.label :data_coleta %><br />
+		    <%= f.date_select :data_coleta %>
+		  </div>
 
 
-Paciente: <br/> 
-<%= select(:examination, :patient_id, Patient.all.map{|u| [u.prontuario, u.id]})%>
+		Paciente: <br/> 
+		<%= select(:examination, :patient_id, Patient.all.map{|u| [u.prontuario, u.id]})%>
 
-<br/>
-Medico: <br/> 
-<%= select(:examination, :doctor_id, Doctor.all.map{|u| [u.nome, u.id]})%>
+		<br/>
+		Medico: <br/> 
+		<%= select(:examination, :doctor_id, Doctor.all.map{|u| [u.nome, u.id]})%>
 
-<br/>
-Genotipo: <br/> 
-<%= select(:examination, :genotype_id, Genotype.all.map{|u| [u.codigo, u.id]})%>
+		<br/>
+		Genotipo: <br/> 
+		<%= select(:examination, :genotype_id, Genotype.all.map{|u| [u.codigo, u.id]})%>
+		
+		<br/>
+		Drogas usadas:<br/>
+		<%= select_tag 'usedDrugs[]', options_for_select(Drug.all.map{|u| u.nome}),{ :multiple => false, :size =>5 } %>
+		
+		
+		<input type="button" id="move" value=">" onclick="move_first_to_second(document.getElementById('usedDrugs_').value);">
+		<select name="selectedUsedDrugs[]" id="selectedUsedDrugs_" size="5">
+		</select>
+		<input type="button" id="remove" value="Remove" onclick="remove_elem(document.getElementById('selectedUsedDrugs_').selectedIndex);">
+		
+		<br>
+		  <div class="field">
+		    <%= f.label :carga_viral %><br />
+		    <%= f.text_field :carga_viral %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :aghbs %><br />
+		    <%= f.text_field :aghbs %>
+		  </div>
+		  <div class="field">
+		    <%= f.label :periodo %><br />
+		    <%= f.text_field :periodo %>
+		  </div>
 
-<br>
-Resistencia a Drogas:
-<br/>
-
-<%= select_tag("druguse_ids[]", options_for_select(Drug.find(:all).collect { |drug| [drug.nome, drug.id] }, 
-	@examination.drug_uses.collect { |use| use.id}), {:multiple=>true, :size=>6})%>
-
-<%= select_tag("testselect", options_for_select(Drug.find(:all).collect { |drug| [drug.nome, drug.id] }),{:multiple=>true, :size=>6})%>
-
-<br>
-Resistencia a Drogas:
-<br/>
-
-<%= select_tag("druguse_ids[]", options_for_select(Drug.find(:all).collect { |drug| [drug.nome, drug.id] }, 
-	@examination.drug_uses.collect { |use| use.id}), {:multiple=>true, :size=>6})%>
-
-<%= select_tag("testselect", options_for_select(Drug.find(:all).collect { |drug| [drug.nome, drug.id] }),{:multiple=>true, :size=>6})%>
-
-  <div class="field">
-    <%= f.label :carga_viral %><br />
-    <%= f.text_field :carga_viral %>
-  </div>
-  <div class="field">
-    <%= f.label :aghbs %><br />
-    <%= f.text_field :aghbs %>
-  </div>
-  <div class="field">
-    <%= f.label :periodo %><br />
-    <%= f.text_field :periodo %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+		  <div class="actions">
+		    <%= f.submit%>
+		  </div>
+		<% end %>
+		
+		
