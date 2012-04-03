@@ -1,4 +1,7 @@
 Exames::Application.routes.draw do
+  
+  get "examinations/useDrugs"
+  
   resources :genotypes
 
   resources :mutations
@@ -12,9 +15,7 @@ Exames::Application.routes.draw do
   resources :patients
 
   resources :examinations
-
-  get "examinations/useDrugs"
-
+  
   root :to => "home#index" 
   
   # The priority is based upon order of creation:

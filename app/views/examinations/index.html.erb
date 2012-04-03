@@ -1,6 +1,12 @@
 <div class="wrapper col4">
   <div id="container">
     <div id="content">
+	
+		<%= form_for(:examination, :url => { :action => "index" }, :html => {:method => :get} ) do |f| %>
+			Start date: <%= select_date Date.today, :prefix => :start_date %> 
+			<br/>End date:<%= select_date Date.today, :prefix => :end_date %><%= f.submit 'Filter' %>
+		<% end %>
+		
 	  	<table summary="Examinations" cellpadding="0" cellspacing="0">
 		<thead>
 		  <tr>

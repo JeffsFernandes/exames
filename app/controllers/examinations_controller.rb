@@ -5,8 +5,19 @@ class ExaminationsController < ApplicationController
   # GET /examinations
   # GET /examinations.json
   def index
-    @examinations = Examination.all
-
+    @examinations = []
+    if params[:start_date] && params[:end_date]
+       start_date_param = params[:start_date]
+       end_date_param = params[:end_date]
+       
+       start_date = Date.new(start_date_param[:year].to_i,start_date_param[:month].to_i,start_date_param[:day].to_i)
+       end_date = Date.new(end_date_param[:year].to_i,end_date_param[:month].to_i,end_date_param[:day].to_i)
+       
+       @examinations = Examination.find(:all, :conditions => {:data_coleta => start_date..end_date})  
+    else
+       @examinations = Examination.all
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @examinations }
