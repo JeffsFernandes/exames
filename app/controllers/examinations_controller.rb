@@ -13,11 +13,11 @@ class ExaminationsController < ApplicationController
        start_date = Date.new(start_date_param[:year].to_i,start_date_param[:month].to_i,start_date_param[:day].to_i)
        end_date = Date.new(end_date_param[:year].to_i,end_date_param[:month].to_i,end_date_param[:day].to_i)
        
-       @examinations = Examination.find(:all, :conditions => {:data_coleta => start_date..end_date})  
+       @examinations = Examination.paginate(:page => params[:page], :per_page => 10).find(:all, :conditions => {:data_coleta => start_date..end_date})  
     else
-       @examinations = Examination.all
+       @examinations = Examination.paginate(:page => params[:page], :per_page => 10)
     end
-    
+  
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @examinations }
