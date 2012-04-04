@@ -36,16 +36,12 @@
   <% if user_signed_in? %>
 	<div id="topnav">
     	<ul> 
-      		<li class="active"> <%= link_to "Examinations", examinations_path %></li>
-			<li class="active"><a href="#">Data</a>
-				<ul>
-					<li><%= link_to "Patients",patients_path %></li>
-					<li><%= link_to "Doctors",doctors_path %></li>
-					<li><%= link_to "Drugs",drugs_path %></li>
-					<li><%= link_to "Mutations",mutations_path %></li>
-					<li><%= link_to "Genotypes",genotypes_path %></li>
-				</ul>
-			</li>
+      		<li> <%= link_to "Examinations", examinations_path %></li>
+			<li><%= link_to "Patients",patients_path %></li>
+			<li><%= link_to "Doctors",doctors_path %></li>
+			<li><%= link_to "Drugs",drugs_path %></li>
+			<li><%= link_to "Mutations",mutations_path %></li>
+			<li><%= link_to "Genotypes",genotypes_path %></li>
       		<li><%= link_to "Logoff", destroy_user_session_path, :method => :delete %></li>
      	</ul>
   	</div>
