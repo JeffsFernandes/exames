@@ -12,24 +12,24 @@
 		  <% end %>
 
 		  <div class="field">
-		    <%= f.label :data_coleta %><br />
+		    <%= f.label "Collection date" %><br />
 		    <%= f.date_select :data_coleta %>
 		  </div>
 
 
-		Paciente: <br/> 
+		Patient: <br/> 
 		<%= select(:examination, :patient_id, Patient.all.map{|u| [u.prontuario, u.id]})%>
 
 		<br/>
-		Medico: <br/> 
+		Doctor: <br/> 
 		<%= select(:examination, :doctor_id, Doctor.all.map{|u| [u.nome, u.id]})%>
 
 		<br/>
-		Genotipo: <br/> 
+		Genotype: <br/> 
 		<%= select(:examination, :genotype_id, Genotype.all.map{|u| [u.codigo, u.id]})%>
 		
 		<br/>
-		Drogas usadas:<br/>
+		Used drugs:<br/>
 		<% for drug in Drug.find(:all) %>
 			<div>
 		  	<%= check_box_tag "examination[usesOfDrug_ids][]", drug.id, @examination.usesOfDrugs.include?(drug) %>
@@ -37,7 +37,7 @@
 			</div>
 		<% end %>
 		
-		Drogas com resistencia:<br/>
+		Resistance to drugs:<br/>
 		<% for drug in Drug.find(:all) %>
 			<div>
 		  	<%= check_box_tag "examination[resistancesToDrug_ids][]", drug.id, @examination.resistancesToDrugs.include?(drug) %>
@@ -47,7 +47,7 @@
 		
 		<br>
 		  <div class="field">
-		    <%= f.label :carga_viral %><br />
+		    <%= f.label "Viral load" %><br />
 		    <%= f.text_field :carga_viral %>
 		  </div>
 		  <div class="field">
@@ -55,7 +55,7 @@
 		    <%= f.text_field :aghbs %>
 		  </div>
 		  <div class="field">
-		    <%= f.label :periodo %><br />
+		    <%= f.label "Period" %><br />
 		    <%= f.text_field :periodo %>
 		  </div>
 
