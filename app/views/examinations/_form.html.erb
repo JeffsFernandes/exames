@@ -1,29 +1,4 @@
-		<script language="JavaScript">
-
-		function move_first_to_second(value) {
-		  var len = document.getElementById('selectedUsedDrugs_').length;
-		  document.getElementById('selectedUsedDrugs_').options[len] = new Option(value);
-		}
-
-		function remove_elem(idx) {
-		  var len = document.getElementById('selectedUsedDrugs_').length;
-		  if (len <= 0) return;
-		  var combo = document.getElementById('selectedUsedDrugs_');
-		  var j=0;
-		  for (var i = 0; i < combo.options.length; i++) {
-		    if (i == idx) {
-		      combo.options[i].selected = false;
-		      combo.options[i] = null;
-		    } else {
-		      document.getElementById('selectedUsedDrugs_').options[j] = new Option(combo.options[i].value);
-		      j++;
-		    }
-		  }
-		}
-
-		</script>
-		<hidden id="hidden1">Oi</hidden>
-		<%= form_for(@examination) do |f| %>
+	<%= form_for(@examination) do |f| %>
 		  <% if @examination.errors.any? %>
 		    <div id="error_explanation">
 		      <h2><%= pluralize(@examination.errors.count, "error") %> prohibited this examination from being saved:</h2>
@@ -55,13 +30,20 @@
 		
 		<br/>
 		Drogas usadas:<br/>
-		<%= select_tag 'usedDrugs[]', options_for_select(Drug.all.map{|u| u.nome}),{ :multiple => false, :size =>5 } %>
+		<% for drug in Drug.find(:all) %>
+			<div>
+		  	<%= check_box_tag "examination[usesOfDrug_ids][]", drug.id, @examination.usesOfDrugs.include?(drug) %>
+		  	<%= drug.nome %>
+			</div>
+		<% end %>
 		
-		
-		<input type="button" id="move" value=">" onclick="move_first_to_second(document.getElementById('usedDrugs_').value);">
-		<select name="selectedUsedDrugs[]" id="selectedUsedDrugs_" size="5">
-		</select>
-		<input type="button" id="remove" value="Remove" onclick="remove_elem(document.getElementById('selectedUsedDrugs_').selectedIndex);">
+		Drogas com resistencia:<br/>
+		<% for drug in Drug.find(:all) %>
+			<div>
+		  	<%= check_box_tag "examination[resistancesToDrug_ids][]", drug.id, @examination.resistancesToDrugs.include?(drug) %>
+		  	<%= drug.nome %>
+			</div>
+		<% end %>
 		
 		<br>
 		  <div class="field">
