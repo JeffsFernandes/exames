@@ -74,6 +74,9 @@ class ExaminationsController < ApplicationController
   # PUT /examinations/1
   # PUT /examinations/1.json
   def update
+    params[:examination][:usesOfDrug_ids] ||= []
+    params[:examination][:resistancesToDrug_ids] ||= []
+    
     @examination = Examination.find(params[:id])
 
     respond_to do |format|
