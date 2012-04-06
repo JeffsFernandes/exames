@@ -41,15 +41,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: controlealimentar_test
+  database: hepatite_test
   pool: 5
-  username: controlealimentar
+  username: 
   password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: controlealimentar_production
+  database: hepatite_production
   pool: 5
-  username: controlealimentar
+  username: 
   password:

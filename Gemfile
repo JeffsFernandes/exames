@@ -4,7 +4,7 @@ gem 'rails', '3.1.1'
 gem 'will_paginate'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
+gem "heroku"
 gem 'pg'
 gem 'devise'
 
