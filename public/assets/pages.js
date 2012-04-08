@@ -1,0 +1,1 @@
+function TrocaList(a,b){var c;for(c=0;c<a.options.length;c++)if(a.options[c].selected==1){var d=document.createElement("OPTION");d.text=a.options[c].text,d.value=a.options[c].value,b.options.add(d),a.options.remove(c),c--}};

@@ -47,7 +47,7 @@ module Exames
     
     config.assets.compile = true
                                                       
-    config.assets.precompile = ['featured_slide.css', 'application.css', 'forms.css', 'navi.css', 'layout.css', 'loginslider.css','tables.css']    
+    config.assets.precompile = ['application.js','jquery-1.4.1.min.js','jquery.slidepanel.setup.js','jquery.tabs.setup.js','pages.js','featured_slide.css', 'application.css', 'forms.css', 'navi.css', 'layout.css', 'loginslider.css','tables.css']    
     
     config.serve_static_assets = true
                                                                                      
