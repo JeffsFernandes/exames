@@ -46,8 +46,10 @@ module Exames
     config.assets.version = '1.0'    
     
     config.assets.compile = true
+                                                      
+    config.assets.precompile = ['featured_slide.css']    
     
     config.serve_static_assets = true
-                                          
-    end
+                                                                                     
+  end
 end
