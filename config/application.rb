@@ -46,6 +46,6 @@ module Exames
     config.assets.version = '1.0'    
     
     config.assets.compile = true
-       
+                                                                                            
   end
 end
