@@ -46,7 +46,8 @@ module Exames
     config.assets.version = '1.0'    
     
     config.assets.compile = true
-                                                      
-    config.assets.precompile = [ Proc.new{ |path| !File.extname(path).in?(['.js', '.css']) }, /application.(css|js)$/ ]                                                                                    
-  end
+    
+    config.serve_static_assets = true
+                                          
+    end
 end
