@@ -47,6 +47,6 @@ module Exames
     
     config.assets.compile = true
                                                       
-    config.assets.precompile = ['featured_slide.css']                                                                                     
+    config.assets.precompile = [ Proc.new{ |path| !File.extname(path).in?(['.js', '.css']) }, /application.(css|js)$/ ]                                                                                    
   end
 end
