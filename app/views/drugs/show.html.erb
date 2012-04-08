@@ -1,0 +1,20 @@
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+		<p id="notice"><%= notice %></p>
+
+		<p>
+		  <b>Name:</b>
+		  <%= @drug.nome %>
+		</p>
+
+
+		<%= link_to 'Edit', edit_drug_path(@drug) %> |
+		<%= link_to 'Back', drugs_path %>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+
+

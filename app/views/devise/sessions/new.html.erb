@@ -1,0 +1,42 @@
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+	  	<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+		<br/>
+		<p class="textloginbemvindo">
+			Welcome to
+			<h2 class="textlogin"> Hepatitis examinations control system</h2>
+		</p>
+		<p class="ptextologin">
+			To fave access to the system type <br/> your E-Mail and password.<br/><br/>
+			If you are not registered, register yourself.
+		</p>
+
+		<div id ="login">
+			<div class="loginfield">
+				E-Mail <br />
+				<%= f.email_field :email %>
+			</div>
+
+			<div class="loginfield">
+				<%= f.label "Password" %><br />
+				<%= f.password_field :password %>
+			</div>
+
+			<div>
+				<%= f.submit "Log in" %>
+			</div>
+
+			<%= render :partial => "devise/shared/links" %>
+		</div>
+		<% end %>
+	    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+		<p id="notice"><%= notice %></p>
+
+		<p>
+		  <b>CRM:</b>
+		  <%= @doctor.crm %>
+		</p>
+
+		<p>
+		  <b>Name:</b>
+		  <%= @doctor.nome %>
+		</p>
+
+		<p>
+		  <b>E-Mail:</b>
+		  <%= @doctor.email %>
+		</p>
+
+		<p>
+		  <b>Phone:</b>
+		  <%= @doctor.telefone %>
+		</p>
+
+
+		<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+		<%= link_to 'Back', doctors_path %>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+

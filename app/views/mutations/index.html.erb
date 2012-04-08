@@ -1,0 +1,34 @@
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+	  	<table summary="Genotypes" cellpadding="0" cellspacing="0">
+		<thead>
+		  <tr>
+		    <th>Code</th>
+		    <th></th>
+		    <th></th>
+		    <th></th>
+		  </tr>
+		</thead>
+		<% light = true %>
+		<% @mutations.each do |mutation| %>
+		<% if light %>
+		  <tr class="light">
+		<% else %>
+		  <tr class="dark">
+		<% end %>
+		    <td><%= mutation.codigo %></td>
+		    <td><%= link_to 'Show', mutation %></td>
+		    <td><%= link_to 'Edit', edit_mutation_path(mutation) %></td>
+		    <td><%= link_to 'Destroy', mutation, confirm: 'Are you sure?', method: :delete %></td>
+		<% light = !light%>
+		  </tr>
+		<% end %>
+		</table>
+		<%= will_paginate @mutations %><br/>
+		
+		<%= link_to 'New Mutation', new_mutation_path %>
+	</div>
+   <div class="clear"></div>
+  </div>
+</div>

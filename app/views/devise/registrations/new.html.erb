@@ -1,0 +1,26 @@
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+<div id= "logingeralregistrar">
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <h2>Register:</h2>
+  <div id="login">
+  <div class="loginfield"><%= f.label "E-Mail" %><br />
+  <%= f.email_field :email %></div>
+	
+  <div class="loginfield"><%= f.label "Password" %><br />
+  <%= f.password_field :password %></div>
+
+  <div class="loginfield"><%= f.label "Confirm password" %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "Register" %></div>
+  </div>
+<% end %>
+</div>
+  </div>
+<div class="clear"></div>
+</div>
+</div>

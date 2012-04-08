@@ -1,0 +1,21 @@
+<%= form_for(@mutation) do |f| %>
+  <% if @mutation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mutation.errors.count, "error") %> prohibited this mutation from being saved:</h2>
+
+      <ul>
+      <% @mutation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Code" %><br />
+    <%= f.text_field :codigo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
