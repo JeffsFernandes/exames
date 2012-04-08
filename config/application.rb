@@ -47,6 +47,6 @@ module Exames
     
     config.assets.compile = true
                                                       
-                                                                                            
+    config.assets = ['featured_slide.css']                                                                                     
   end
 end
