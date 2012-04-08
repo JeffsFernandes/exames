@@ -47,7 +47,7 @@ module Exames
     
     config.assets.compile = true
                                                       
-    config.assets.precompile = ['featured_slide.css', 'aplication.css']    
+    config.assets.precompile = ['featured_slide.css', 'application.css']    
     
     config.serve_static_assets = true
                                                                                      
