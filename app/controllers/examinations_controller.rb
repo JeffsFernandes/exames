@@ -54,11 +54,6 @@ class ExaminationsController < ApplicationController
   # POST /examinations
   # POST /examinations.json
   def create
-    puts "************************"
-    params.each do |k,v|
-      puts v
-    end
-    puts "************************"
     @examination = Examination.new(params[:examination])
     respond_to do |format|
       if @examination.save
@@ -76,7 +71,7 @@ class ExaminationsController < ApplicationController
   def update
     params[:examination][:usesOfDrug_ids] ||= []
     params[:examination][:resistancesToDrug_ids] ||= []
-    
+    params[:examination][:mutation_ids] ||= []
     @examination = Examination.find(params[:id])
 
     respond_to do |format|

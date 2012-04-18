@@ -44,6 +44,13 @@
 		  	<%= drug.nome %>
 			</div>
 		<% end %>
+		Mutations:<br/>
+		<% for mutation in Mutation.find(:all) %>
+			<div>
+		  	<%= check_box_tag "examination[mutation_ids][]", mutation.id, @examination.mutations.include?(mutation) %>
+		  	<%= mutation.codigo %>
+			</div>
+		<% end %>
 		
 		<br>
 		  <div class="field">
