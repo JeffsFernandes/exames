@@ -1,0 +1,64 @@
+<div class="wrapper col4">
+  <div id="container">
+    <div id="content">
+	  	<table summary="Examinations" cellpadding="0" cellspacing="0" font-size="10">
+		<thead>
+		  <tr>
+		    <th>Sexo</th>
+		    <th>Passagem</th>
+		    <th>Prontuario</th>
+		    <th>Nascimento</th>
+		    <th>Coleta</th>
+		    <th>Período</th>
+		    <th>Genótipo</th>
+		    <th>Médico</th>
+		    <th>Mutações</th>
+		    <th witdh="10px">Resistência</th>
+		    <th>Medicamento</th>	
+		    <th>Carga Viral</th>	
+		    <th>AgHBs quanti</th>
+		    <th>Co-infecção</th>
+		  </tr>
+		</thead>
+		<% light = true %>
+		<% @examinations.each do |examination| %>
+		<% if light %>
+		  <tr class="light">
+		<% else %>
+		  <tr class="dark">
+		<% end %>
+			<td><%= examination.patient.sexo %></td>
+			<td><%= examination.patient.passagem %></td>
+			<td><%= examination.patient.prontuario %></td>
+			<td><%= examination.patient.data_nascimento %></td>
+			<td><%= examination.data_coleta %></td>
+			<td><%= examination.periodo %></td>
+			<td><%= examination.genotype.codigo %></td>
+		    <td><%= examination.doctor.nome %></td>
+		    <% mutations = '' %>
+		    <% examination.mutations.each do |mut| %>
+		    	<% mutations = mutations + ', ' if mutations != '' %>
+		    	<% mutations = mutations + mut.codigo %>
+			<% end %>
+			<td><%= mutations %></td>
+			
+			<% resistances = '' %>
+		    <% examination.drug_resistances.each do |resist| %>
+		    	<% resistances = resistances + ', ' if resistances != '' %>
+		    	<% resistances = resistances + resist.drug.nome %>
+			<% end %>
+			<td><%= resistances %></td>
+			<td></td>
+			<td><%= examination.carga_viral %></td>
+		    <td><%= examination.aghbs %></td>
+		    <td></td>
+		    <td><%= link_to 'Details', examination %></td>
+			<% light = !light%>
+		  </tr>
+		<% end %>
+		</table>
+		<%= will_paginate @examinations %><br/>
+	</div>
+   <div class="clear"></div>
+  </div>
+</div>
