@@ -97,12 +97,12 @@ class ExaminationsController < ApplicationController
     end
   end
   
-  private
-  
-  def useDrugs
-      if params[:useDrugs]
-    		@drug_ids = params[:useDrugs] 
-    	end
-    	@drug_ids.each{|d| params[:druguse_ids] << @drug_ids} if @drug_ids
+  # GET /examinations/report
+  def report
+  	@examinations = Examination.paginate(:page => params[:page], :per_page => 10)
+  	
+  	respond_to do |format|
+      format.html # report.html.erb
+    end
   end
 end

@@ -1,6 +1,6 @@
 Exames::Application.routes.draw do
   
-  get "examinations/useDrugs"
+  get "examinations/report"
   
   resources :genotypes
 
