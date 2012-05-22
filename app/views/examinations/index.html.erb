@@ -7,7 +7,7 @@
 			<br/>End date:<%= select_date Date.today, :prefix => :end_date %><%= f.submit 'Filter' %>
 		<% end %>
 		
-	  	<table summary="Examinations" cellpadding="0" cellspacing="0">
+	  	<table summary="Exams" cellpadding="0" cellspacing="0">
 		<thead>
 		  <tr>
 		    <th>Collection date</th>
@@ -15,7 +15,7 @@
 		    <th>Patient</th>
 		    <th>Genotype</th>
 		    <th>Viral load</th>
-		    <th>Aghbs</th>
+		    <th>AgHBs</th>
 		    <th>Period</th>
 		    <th></th>
 		    <th></th>
@@ -30,9 +30,9 @@
 		  <tr class="dark">
 		<% end %>
 			<td>     <%= examination.data_coleta %>     </td>
-		    <td><%= examination.doctor.nome %></td>
-		    <td><%= examination.patient.prontuario %></td>
-		    <td><%= examination.genotype.codigo %></td>
+		    <td><%= link_to examination.doctor.nome, examination.doctor %></td>
+		    <td><%= link_to examination.patient.prontuario, examination.patient %></td>
+		    <td><%= link_to examination.genotype.codigo, examination.genotype %></td>
 		    <td><%= examination.carga_viral %></td>
 		    <td><%= examination.aghbs %></td>
 		    <td><%= examination.periodo %></td>
@@ -44,7 +44,7 @@
 		<% end %>
 		</table>
 		<%= will_paginate @examinations %><br/>
-		<%= link_to 'New Examination', new_examination_path %>
+		<%= link_to 'New Exam', new_examination_path %>
 	</div>
    <div class="clear"></div>
   </div>

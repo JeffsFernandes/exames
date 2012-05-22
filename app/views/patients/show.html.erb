@@ -2,7 +2,7 @@
   <div id="container">
     <div id="content">
 		<p id="notice"><%= notice %></p>
-
+		<h2>Patient details</h2>
 		<p>
 		  <b>Gender:</b>
 		  <%= @patient.sexo %>
@@ -23,14 +23,30 @@
 		  <%= @patient.prontuario %>
 		</p>
 
-
-		<%= link_to 'Edit', edit_patient_path(@patient) %> |
+		
+		<%= link_to 'Edit', edit_patient_path(@patient) %> 
 		<%= link_to 'Back', patients_path %>
-
+		<br/>
+		<br/>
+		<h2>Exams</h2>
+		<br/>
+		<table>
+			<thead>
+			<tr>
+				<th>Collection date</th>
+		    	<th>Doctor</th>
+		    	<th></th>
+			</tr>
+			</thead>
+		<% @patient.examinations.each do |exam| %>
+			<tr>
+				<td><%= exam.data_coleta %></td>
+		    	<td><%= exam.doctor.nome %></td>
+		    	<td><%= link_to 'Details', exam %></td>
+			</tr>
+		<% end %>
+		</table>
     </div>
     <div class="clear"></div>
   </div>
 </div>
-
-
-

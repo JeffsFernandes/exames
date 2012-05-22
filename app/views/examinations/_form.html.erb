@@ -1,7 +1,7 @@
 	<%= form_for(@examination) do |f| %>
 		  <% if @examination.errors.any? %>
 		    <div id="error_explanation">
-		      <h2><%= pluralize(@examination.errors.count, "error") %> prohibited this examination from being saved:</h2>
+		      <h2><%= pluralize(@examination.errors.count, "error") %> prohibited this exam from being saved:</h2>
 
 		      <ul>
 		      <% @examination.errors.full_messages.each do |msg| %>
@@ -58,7 +58,7 @@
 		    <%= f.text_field :carga_viral %>
 		  </div>
 		  <div class="field">
-		    <%= f.label :aghbs %><br />
+		    AgHBs<br />
 		    <%= f.text_field :aghbs %>
 		  </div>
 		  <div class="field">
