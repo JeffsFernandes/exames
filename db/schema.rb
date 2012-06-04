@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120311143753) do
+ActiveRecord::Schema.define(:version => 20120604144242) do
 
   create_table "coinfections", :force => true do |t|
     t.string "nome", :limit => 30
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20120311143753) do
 
   create_table "examinations", :force => true do |t|
     t.date    "data_coleta"
-    t.integer "carga_viral", :limit => 2
+    t.float   "carga_viral"
     t.integer "aghbs",       :limit => 2
     t.string  "periodo",     :limit => 25
     t.integer "doctor_id",   :limit => 2
